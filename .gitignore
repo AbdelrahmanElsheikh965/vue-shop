@@ -2,7 +2,12 @@
 node_modules
 /dist
 
-src/assets
+public/css
+public/img
+public/js
+public/scss
+public/vendor
+
 src/data/images
 
 # local env files

@@ -21,7 +21,7 @@
     </header>
   
     <!-- ======= Hero Section ======= -->
-    <div id="hero" class="hero route bg-image" style="background-image: url(../assets/img/hero-bg.jpg)">
+    <div id="hero" class="hero route bg-image" style="background-image: url(../../public/img/hero-bg.jpg)">
       <div class="overlay-itro"></div>
       <div class="hero-content display-table">
         <div class="table-cell">
@@ -57,37 +57,37 @@
             <thead class="thead-dark">
               <tr>
                 <th scope="col">Title</th>
-                <th scope="col">Author</th>
-                <th scope="col">Country</th>
+                <th scope="col">Genre</th>
+                <th scope="col">Release Year</th>
                 <th scope="col">Remove</th>
               </tr>
             </thead>
             <tbody>
               <tr v-for="c_item in cart_books">
                 <td>{{c_item.title}}</td>
-                <td>{{c_item.author}}</td>
-                <td>{{c_item.country}}</td>
+                <td>{{c_item.genre}}</td>
+                <td>{{c_item.released}}</td>
                 <td> <button type="button" class="btn btn-danger" @click="removeFromCart(c_item)">Delete</button> </td>
               </tr>
             </tbody>
           </table>
 
-          <div class="col-md-4" v-for="book in books" v-if="in_books===true">
+          <div class="col-md-4" v-for="book in books" v-if="in_books===true" :key="book.id">
             <div class="work-box">
-              <a href="/cli-books/src/assets/img/work-1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox">
+              <a href="../assets/hero-bg.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox">
                 <div class="work-img">
-                  <img :src="book.imageLink" alt="" class="img-fluid">
+                  <img :src="book.image" alt="" class="img-fluid">
                 </div>
               </a>
-              <div class="work-content" :class="{'more': book.pages>=250, 'less': book.pages<250, 'none': book.pages<200}">
+              <div class="work-content" :class="{'more': book.price>=250, 'less': book.price<250, 'none': book.price<200}">
                 <div class="row" >
                   <div class="col-sm-8" >
                     <h2 class="w-title"> {{book.title}} </h2>
                     <div class="w-more">
-                      <span class="w-ctegory">Author</span> / <span class="w-date"> {{book.author}} </span>
+                      <span class="w-ctegory">Genre</span> / <span class="w-date"> {{book.genre}} </span>
                     </div>
                     <div class="w-more">
-                      <span class="w-ctegory">Pages</span> / <span class="w-date"> {{formatNumber(book.pages)}} </span>
+                      <span class="w-ctegory">Price</span> / <span class="w-date"> {{formatNumber(book.price)}} </span>
                     </div>
                   </div>
                   <div class="col-sm-4">
@@ -110,13 +110,13 @@
 
 <script>
 
-import source_books from '../data/books'
+import books_jsonArray from './books_jsonArray'
 
 export default {
   
   data: () => ({
 
-      books: source_books,
+      books: books_jsonArray,
 
       counter: 10,
       in_books: true,
@@ -124,13 +124,15 @@ export default {
       
       cart_books: [],
       
-      // mytemplate: "<h4>ITI NewCapital Branch</h4>",
-      
     }),
     
     //concise methods
     methods: {
       
+      prepareImageLink(bookImageLink){
+        return require(`${bookImageLink}`)
+      },
+
       formatNumber(n){
         return new Intl.NumberFormat("ar-SA").format(n);
       },
@@ -155,7 +157,7 @@ export default {
       },
       
       removeFromCart(itemToBeDeleted) {
-        this.cart_books = this.cart_books.filter(book => book.title !== itemToBeDeleted.title);
+        this.cart_books = this.cart_books.filter(book => book.id !== itemToBeDeleted.id);
         console.log(this.cart_books);
       }
 
