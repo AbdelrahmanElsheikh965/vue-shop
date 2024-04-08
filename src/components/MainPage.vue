@@ -1,40 +1,12 @@
 <template>
-  <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Vue our books</title>
-
-      <!-- Favicons -->
-      <link href="assets/img/favicon.png" rel="icon">
-      <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
-      <!-- Vendor CSS Files -->
-      <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-      <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-      <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-      <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
-      <!-- Template Main CSS File -->
-      <link href="assets/css/style.css" rel="stylesheet">
-
-    <!-- Step 1: import the source file | CDN -->
-    <script src="vueversion3.js"></script>
   
-  </head>
-
-  <body>
-
-    <div id="main">
-
+  <div>
       <header id="header" class="fixed-top">
       <div class="container d-flex align-items-center justify-content-between">
   
         <h1 class="logo"><a href="index.html">DevFolio</a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
-        <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+        <!-- <a href="index.html" class="logo"><img src="../assets/img/logo.png" alt="" class="img-fluid"></a>-->
   
         <nav id="navbar" class="navbar">
           <ul>
@@ -43,13 +15,13 @@
             <li><a class="nav-link scrollto" href="#contact" @click="toggleCart()">Cart Books</a></li>
           </ul>
           <i class="bi bi-list mobile-nav-toggle"></i>
-        </nav><!-- .navbar -->
+        </nav>
   
       </div>
-    </header><!-- End Header -->
+    </header>
   
     <!-- ======= Hero Section ======= -->
-    <div id="hero" class="hero route bg-image" style="background-image: url(assets/img/hero-bg.jpg)">
+    <div id="hero" class="hero route bg-image" style="background-image: url(../assets/img/hero-bg.jpg)">
       <div class="overlay-itro"></div>
       <div class="hero-content display-table">
         <div class="table-cell">
@@ -102,7 +74,7 @@
 
           <div class="col-md-4" v-for="book in books" v-if="in_books===true">
             <div class="work-box">
-              <a href="assets/img/work-1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox">
+              <a href="/cli-books/src/assets/img/work-1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox">
                 <div class="work-img">
                   <img :src="book.imageLink" alt="" class="img-fluid">
                 </div>
@@ -132,34 +104,17 @@
       </div>
     </section>
 
-  </div>
-
-    
-    <!-- books source file -->
-    <script src="books.js"></script>
-
-    <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/typed.js/typed.umd.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-
-  <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
-  
-
-
-  </body>
-</html>
+    </div>
 
 </template>
 
 <script>
+
+import source_books from '../data/books'
+
 export default {
   
-
-    data: () => ({
+  data: () => ({
 
       books: source_books,
 
