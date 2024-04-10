@@ -9,7 +9,7 @@ export default {
 </script>
 
 <template>
-
+  <!-- <template>{{ getThisProductData($route.params.id) }}</template> -->
   <br> <br>  <br> <br> 
   <div class="col-md-4">
     <div class="work-box">
