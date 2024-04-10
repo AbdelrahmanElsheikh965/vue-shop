@@ -2,13 +2,6 @@
 node_modules
 /dist
 
-public/css
-public/img
-public/js
-public/scss
-public/vendor
-
-src/data/images
 
 # local env files
 .env.local
