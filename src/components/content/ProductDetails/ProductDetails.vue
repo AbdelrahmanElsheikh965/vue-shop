@@ -1,4 +1,16 @@
+<script>
+
+export default {
+    name: 'Product',
+    props: {
+        // 
+    }
+}
+</script>
+
 <template>
+
+  <br> <br>  <br> <br> 
   <div class="col-md-4">
     <div class="work-box">
       <a
@@ -30,17 +42,6 @@
       </div>
     </div>
   </div>
+
 </template>
 
-<script>
-export default {
-    name: 'Product',
-    props: {
-        // 
-    }
-}
-</script>
-
-<style scoped>
-
-</style>
