@@ -5,7 +5,8 @@
       <nav id="navbar" class="navbar">
         <ul>
           <li> <router-link :to="'/'"> Home </router-link> </li>
-          <li> <router-link :to="'/details'"> Details </router-link> </li>
+          <li> <router-link :to="'/new'"> Add A_NEW_PRODUCT </router-link> </li>
+          <li> <router-link :to="'/cart'"> Cart </router-link> </li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav>

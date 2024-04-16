@@ -2,14 +2,28 @@
 /* eslint-disable */
 export default {
   name: "ProductCard",
-  props: ["id", "title", "description", "category", "price"],
-  data() {
-    return {
-
-    };
+  props: {
+    product: Object, // Define a prop named 'product' of type Object
   },
-  methods: {
+  data:() => ({
+      // cartStore: useCartStore()
+    }),
+    methods:{
+      // cartAdd(product){
+      //   this.cartStore.addToCart(product)
+      // },
 
+    // removeProduct(id){
+
+      // fetch(`http://localhost:3000/products/${id}`, {
+      //     method: 'DELETE',
+      //     header: {
+      //       'Content-Type': 'application/json',
+      //       'Accept': 'application/json'
+      //     },
+      // })
+    // }
+      
   },
 };
 </script>
@@ -29,22 +43,25 @@ export default {
         <div class="row">
           <div class="col-sm-8">
             <h2 class="w-title">
-              <router-link :to="'/details/'+id"> {{ title }} </router-link>  
+              <router-link :to="'/details/'+product.id"> {{ product.title }} </router-link>  
             </h2>
             <div class="w-more">
               <span class="w-ctegory">Category</span> /
-              <span class="w-date">{{ category }}</span>
+              <span class="w-date">{{ product.category }}</span>
             </div>
             <div class="w-more">
               <span class="w-ctegory">Price</span> /
-              <span class="w-date"> {{ price }} </span>
+              <span class="w-date"> {{ product.price }} </span>
             </div>
           </div>
           <div class="col-sm-4">
             <div class="w-like">
-              <a href="portfolio-details.html">
-                <span class="bi bi-plus-circle"></span
-              ></a>
+              <a href="" @click.prevent="cartProduct(id)">
+                <span class="bi bi-plus-circle"></span> 
+              </a> 
+              <a href="" @click.prevent="removeProduct(id)">
+                <span class="bi bi-ban"></span>
+              </a>
             </div>
           </div>
         </div>

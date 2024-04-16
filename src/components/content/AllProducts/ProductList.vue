@@ -1,24 +1,27 @@
 <script>
 /* eslint-disable */
 import ProductCard from "./ProductCard.vue";
-
-const products = await fetch('http://localhost:3000/products')
-const productsData = await products.json()
-console.log(productsData);
+import { useMainStore } from "@/stores/mainstore";
+import { onMounted, ref } from "vue";
 
 export default {
   name: "ProductList",
-  props: {
-    productsData 
+  setup() {
+    const mainStore = useMainStore(); // Access the Pinia store
+    const products = ref([]);
+
+    onMounted(async () => {
+      await mainStore.fetchProducts();
+      products.value = mainStore.all_products;
+    });
+
+    return {
+      products,
+    };
   },
   components: {
     ProductCard,
   },
-  data(){
-    return {
-        allProducts: productsData
-    }
-  }
 };
 </script>
 
@@ -36,16 +39,14 @@ export default {
           </div>
         </div>
       </div>
-      <div class="row">
+      <div class="row" v-if="products">
         <ProductCard
-      v-for="p in allProducts"
-      :id="p.id"
-      :title="p.title"
-      :description="p.description"
-      :price="p.price"
-      :category="p.category"/>
+          v-for="p in products"
+          :key="p.id"
+          :product="p"
+        />
       </div>
+      <div class="row" v-else>Loading...</div>
     </div>
   </section>
 </template>
-
