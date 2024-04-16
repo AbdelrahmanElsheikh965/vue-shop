@@ -1,83 +1,29 @@
 <script>
 /* eslint-disable */
-
+import { useMainStore } from "@/stores/mainstore";
 
 export default {
 
   name: "NewProduct",
-
-  props: {
-    // lastId: {
-    //   type: Number, // Assuming last_id is a number
-    //   required: true // You can adjust this as needed
-    // }
-  },
-  setup() {
-    // const lastIdStore = useLastIdStore();
-    // console.log(lastIdStore.last_id);
-    // return { lastIdStore };
+  data(){
+    return {
+      model: {
+        product: {
+          title: '',
+          description: '',
+          price: '',
+          category: '',
+        }
+      }
+    }
   },
 
   methods:{
 
     handleFormSubmit (submitEvent) {
-     
-      // alert(this.lastIdStore.last_id)
-      // this.title = submitEvent.target.elements.title.value
-      // this.description = submitEvent.target.elements.description.value
-      // this.category = submitEvent.target.elements.category.value
-      // this.price = submitEvent.target.elements.price.value
-
-      // let product = {
-      //   id: props.lastId, // Accessing lastId from props
-      //   // id: this.lastIdStore.last_id,  // get the last product id from the store +1
-      //   title: this.title,
-      //   description: this.description,
-      //   category: this.category,
-      //   price: this.price
-      // }
-
-      // fetch('http://localhost:3000/products', {
-      //     method: 'GET',
-      //     header: {
-      //         'Content-Type': 'application/json',
-      //         'Accept': 'application/json'
-      //     },
-      // })
-      // .then((data) => data.json())
-      // .then((data) => data)     
-
-      // console.log(product);
-      // fetch('http://localhost:3000/products', {
-      //     method: 'POST',
-      //     header: {
-      //       'Content-Type': 'application/json',
-      //       'Accept': 'application/json'
-      //     },
-      //     body: JSON.stringify(product)
-      // })
-
-      
-
-      // fetch('http://localhost:3000/products/8', {
-      //     method: 'PUT',
-      //     header: {
-      //       'Content-Type': 'application/json',
-      //       'Accept': 'application/json'
-      //     },
-      //     body: JSON.stringify(product)
-      // })
-
-      // fetch('http://localhost:3000/products/8', {
-      //     method: 'GET',
-      //     header: {
-      //       'Content-Type': 'application/json',
-      //       'Accept': 'application/json'
-      //     },
-      // })
-      // .then((data) => data.json())
-      // .then((data) => console.log(data))
-
+      const mainStore = useMainStore();
+      const saved = mainStore.addNewProduct(this.model.product);
+      alert(saved);
     }
 
   }
@@ -115,6 +61,7 @@ export default {
                             <input
                               type="text"
                               name="title"
+                              v-model="model.product.title"
                               class="form-control"
                               placeholder="Title of the product"
                               required
@@ -126,6 +73,7 @@ export default {
                             <input
                               type="text"
                               class="form-control"
+                              v-model="model.product.category"
                               name="category"
                               placeholder="Category of the product"
                               required
@@ -137,6 +85,7 @@ export default {
                             <input
                               type="number"
                               class="form-control"
+                              v-model="model.product.price"
                               name="price"
                               placeholder="Price of the product"
                               required
@@ -147,6 +96,7 @@ export default {
                           <div class="form-group">
                             <textarea
                               class="form-control"
+                              v-model="model.product.description"
                               name="description"
                               rows="5"
                               placeholder="Description of the product ..."
