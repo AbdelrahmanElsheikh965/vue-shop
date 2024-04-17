@@ -8,7 +8,7 @@ import Cart from '../components/content/Cart/Cart.vue'
 const routes = [
   { path: '/', component: ProductList },
   { path: '/new', component: NewProduct },
-  { path: '/details:id', component: ProductDetails },
+  { path: '/details', component: ProductDetails },
   { path: '/cart', component: Cart },
 ]
 

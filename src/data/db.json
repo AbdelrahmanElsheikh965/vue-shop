@@ -1,11 +1,11 @@
 {
   "products": [
     {
-      "id": "1",
-      "title": "iPhone 9",
-      "description": "An apple mobile which is nothing like apple",
-      "price": 549,
-      "category": "smartphones"
+      "title": "iPhone 9y",
+      "description": "g",
+      "price": 549666666666,
+      "category": "smartphonestttttttt",
+      "id": "1"
     },
     {
       "id": "2",
@@ -90,6 +90,13 @@
       "description": "sad",
       "price": 22,
       "category": "asd"
+    },
+    {
+      "id": "3802",
+      "title": "movile",
+      "description": "gamed",
+      "price": 99,
+      "category": "phone"
     }
   ]
 }

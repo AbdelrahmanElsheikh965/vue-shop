@@ -23,7 +23,7 @@ export default {
     handleFormSubmit (submitEvent) {
       const mainStore = useMainStore();
       const saved = mainStore.addNewProduct(this.model.product);
-      alert(saved);
+      alert('saved');
     }
 
   }
@@ -43,7 +43,7 @@ export default {
           <div class="contact-mf">
             <div id="contact" class="box-shadow-full">
               <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-6" style="margin: auto;">
                   <div class="title-box-2">
                     <h5 class="title-left">Save a new product</h5>
                   </div>
@@ -105,6 +105,7 @@ export default {
                           </div>
                         </div>
                         <div class="col-md-12 text-center">
+                          <br>
                           <button
                             type="submit"
                             class="button button-a button-big button-rouded"
@@ -114,19 +115,6 @@ export default {
                         </div>
                       </div>
                     </form>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="title-box-2 pt-4 pt-md-0">
-                    <h5 class="title-left">Get in Touch</h5>
-                  </div>
-                  <div class="more-info">
-                    <p class="lead">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Facilis dolorum dolorem soluta quidem expedita aperiam
-                      aliquid at. Totam magni ipsum suscipit amet? Autem nemo
-                      esse laboriosam ratione nobis mollitia inventore?
-                    </p>
                   </div>
                 </div>
               </div>
