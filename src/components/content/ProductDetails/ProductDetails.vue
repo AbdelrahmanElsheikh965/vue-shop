@@ -1,22 +1,24 @@
 <script>
-/* eslint-disable */
 import { useMainStore } from "@/stores/mainstore";
 import { onMounted, ref } from "vue";
+import { useRoute } from "vue-router";
 
 export default {
   name: "ProductDetails",
 
   setup() {
-    const mainStore = useMainStore(); // Access the Pinia store
+    const route = useRoute();
+    const productId = ref(route.params.id);
+    const mainStore = useMainStore();
     const product = ref({
-          title: '',
-          description: '',
-          price: '',
-          category: '',
-        });
+      title: "",
+      description: "",
+      price: "",
+      category: "",
+    });
 
     onMounted(async () => {
-      var productResult = await mainStore.getOneProduct(1);
+      var productResult = await mainStore.getOneProduct(productId.value);
       console.log(productResult);
       product.value.title = productResult.title;
       product.value.description = productResult.description;
@@ -24,23 +26,24 @@ export default {
       product.value.category = productResult.category;
     });
 
+    const handleUpdateSubmit = () => {
+      console.log(productId.value, product.value);
+      mainStore.updateProduct(
+        productId.value,
+        product.value
+      );
+      alert("updated");
+    };
+
     return {
+      productId,
       product,
+      handleUpdateSubmit,
     };
   },
-
-  methods:{
-
-    handleUpdateSubmit (submitEvent) {
-      const mainStore = useMainStore();
-      const updated = mainStore.updateProduct(1, this.product);
-      alert('updated');
-    }
-
-  }
-
 };
 </script>
+
 
 <template>
   <section
