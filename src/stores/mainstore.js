@@ -2,7 +2,7 @@ import { defineStore } from "pinia";
 
 export const useMainStore = defineStore("mainStore", {
     state: () => ({
-        all_products: [] //fetch('http://localhost:3000/products').then((data)=>data.json())
+        all_products: []
     }),
     actions: {
         async fetchProducts() {

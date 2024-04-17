@@ -10,7 +10,7 @@ export const useCartStore = defineStore("cartStore", {
             this.cart_data.push(productToBeAdded)
         },
         removeFromCart(productToBeRemoved){
-            this.cart_data = this.cart_data.filter( p => p.id !== productToBeRemoved.id)
+            this.cart_data = this.cart_data.filter( p => p.id !== productToBeRemoved)
         }
     }
 })

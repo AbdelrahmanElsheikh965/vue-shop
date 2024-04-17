@@ -1,15 +1,17 @@
 <script>
 import { useMainStore } from "@/stores/mainstore";
+import { useCartStore } from "@/stores/cartstore";
 
 export default {
   name: "ProductCard",
   props: {
-    product: Object, // Define a prop named 'product' of type Object
+    product: Object, 
   },
-  // name: "ProductCard",
+  
   // var ans = prompt('Delete selected item? (Y/n)');
   setup() {
     const mainStore = useMainStore();
+    const cartStore = useCartStore();
 
     const deleteProduct = (p_id) => {
       console.log(p_id);
@@ -17,8 +19,14 @@ export default {
       alert("Deleted");
     };
 
+    const addToCart = (p) => {
+      cartStore.addToCart(p);
+      alert("added to cart :)");
+    };
+
     return {
       deleteProduct,
+      addToCart,
     };
   },
 };
@@ -53,7 +61,7 @@ export default {
           </div>
           <div class="col-sm-4">
             <div class="w-like">
-              <a href="" @click.prevent="cartProduct(product.id)">
+              <a href="" @click.prevent="addToCart(product)">
                 <span class="bi bi-plus-circle"></span> 
               </a> 
               <a href="" @click.prevent="deleteProduct(product.id)">
