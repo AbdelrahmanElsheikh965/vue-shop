@@ -1,32 +1,29 @@
 <script>
-/* eslint-disable */
+import { useMainStore } from "@/stores/mainstore";
+
 export default {
   name: "ProductCard",
   props: {
     product: Object, // Define a prop named 'product' of type Object
   },
-  data:() => ({
-      // cartStore: useCartStore()
-    }),
-    methods:{
-      // cartAdd(product){
-      //   this.cartStore.addToCart(product)
-      // },
+  // name: "ProductCard",
+  // var ans = prompt('Delete selected item? (Y/n)');
+  setup() {
+    const mainStore = useMainStore();
 
-    // removeProduct(id){
+    const deleteProduct = (p_id) => {
+      console.log(p_id);
+      mainStore.removeProduct(p_id);
+      alert("Deleted");
+    };
 
-      // fetch(`http://localhost:3000/products/${id}`, {
-      //     method: 'DELETE',
-      //     header: {
-      //       'Content-Type': 'application/json',
-      //       'Accept': 'application/json'
-      //     },
-      // })
-    // }
-      
+    return {
+      deleteProduct,
+    };
   },
 };
 </script>
+
 <template>
   <div class="col-md-4">
     <div class="work-box">
@@ -56,10 +53,10 @@ export default {
           </div>
           <div class="col-sm-4">
             <div class="w-like">
-              <a href="" @click.prevent="cartProduct(id)">
+              <a href="" @click.prevent="cartProduct(product.id)">
                 <span class="bi bi-plus-circle"></span> 
               </a> 
-              <a href="" @click.prevent="removeProduct(id)">
+              <a href="" @click.prevent="deleteProduct(product.id)">
                 <span class="bi bi-ban"></span>
               </a>
             </div>

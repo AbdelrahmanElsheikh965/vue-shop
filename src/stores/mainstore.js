@@ -36,6 +36,7 @@ export const useMainStore = defineStore("mainStore", {
                     'Accept': 'application/json'
                 },
             })
+            this.all_products = this.all_products.filter(product => product.id !== productIdToBeRemoved);
         },
 
         async getOneProduct(productId){

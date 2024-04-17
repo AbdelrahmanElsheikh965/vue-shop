@@ -2,7 +2,7 @@
 /* eslint-disable */
 import ProductCard from "./ProductCard.vue";
 import { useMainStore } from "@/stores/mainstore";
-import { onMounted, ref } from "vue";
+import { onMounted, ref, watch } from "vue";
 
 export default {
   name: "ProductList",
@@ -14,7 +14,14 @@ export default {
       await mainStore.fetchProducts();
       products.value = mainStore.all_products;
     });
-
+   
+    // Ensure products is reactive to changes in mainStore.all_products
+    watch(
+      () => mainStore.all_products,
+      (newProducts) => {
+        products.value = newProducts;
+      }
+    );
     return {
       products,
     };
@@ -40,11 +47,7 @@ export default {
         </div>
       </div>
       <div class="row" v-if="products">
-        <ProductCard
-          v-for="p in products"
-          :key="p.id"
-          :product="p"
-        />
+        <ProductCard v-for="p in products" :key="p.id" :product="p" />
       </div>
       <div class="row" v-else>Loading...</div>
     </div>

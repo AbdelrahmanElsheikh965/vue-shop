@@ -1,62 +1,6 @@
 {
   "products": [
     {
-      "title": "Huawei P30lllllllll",
-      "description": "Huawei’s re-badged P30 Pro New Edition was officially unveiled yesterday in Germany and now the device has made its way to the UK.",
-      "price": 499,
-      "category": "smartphones",
-      "id": "1"
-    },
-    {
-      "id": "2",
-      "title": "iPhone X",
-      "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
-      "price": 899,
-      "category": "smartphones"
-    },
-    {
-      "id": "3",
-      "title": "Samsung Universe 9",
-      "description": "Samsung's new variant which goes beyond Galaxy to the Universe",
-      "price": 1249,
-      "category": "smartphones"
-    },
-    {
-      "title": "p",
-      "description": "o",
-      "price": 280,
-      "category": "l",
-      "id": "4"
-    },
-    {
-      "id": "5",
-      "title": "Huawei P30",
-      "description": "Huawei’s re-badged P30 Pro New Edition was officially unveiled yesterday in Germany and now the device has made its way to the UK.",
-      "price": 499,
-      "category": "smartphones"
-    },
-    {
-      "id": "eb1b",
-      "title": "asd",
-      "description": "asd",
-      "price": 22,
-      "category": "asd"
-    },
-    {
-      "id": "1cca",
-      "title": "asd",
-      "description": "asd",
-      "price": 22,
-      "category": "asd"
-    },
-    {
-      "id": "48e9",
-      "title": "asd",
-      "description": "asd",
-      "price": 22,
-      "category": "asd"
-    },
-    {
       "id": "fe8a",
       "title": "asd",
       "description": "sds",
@@ -90,13 +34,6 @@
       "description": "sad",
       "price": 22,
       "category": "asd"
-    },
-    {
-      "id": "3802",
-      "title": "movile",
-      "description": "gamed",
-      "price": 99,
-      "category": "phone"
     }
   ]
 }
